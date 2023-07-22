@@ -1,12 +1,16 @@
-package ORG.EXAMPLE.moDEL;
+package org.EXAMPLE.model.impl;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.EXAMPLE.model.interf.NotifiableProductInterface;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
-public class NotifiableProduct extends Product{
+public class NotifiableProduct extends Product implements NotifiableProductInterface {
     protected String channel;
+
+    public NotifiableProduct(long id, boolean available, String title, double price) {
+        super(id, available, title, price);
+        this.channel = generateAddressForNotification();
+    }
 
     @Override
     public String generateAddressForNotification() {
@@ -22,10 +26,5 @@ public class NotifiableProduct extends Product{
                 ", title='" + title + '\'' +
                 ", price=" + price +
                 '}';
-    }
-
-    @Override
-    public int getAmountInBundle() {
-        throw new UnsupportedOperationException("Product is not a bundle");
     }
 }

@@ -1,33 +1,19 @@
-package ORG.EXAMPLE;
+package org.EXAMPLE;
 
-import ORG.EXAMPLE.moDEL.NotifiableProduct;
-import ORG.EXAMPLE.moDEL.Product;
-import ORG.EXAMPLE.moDEL.ProductBundle;
-import ORG.EXAMPLE.utils.ProductUtils;
+import org.EXAMPLE.model.impl.Product;
+import org.EXAMPLE.utils.ProductUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Stream;
 
 public class Runner {
     public static void main(String[] args) {
         ProductUtils utils = new ProductUtils();
-        List<Product> products = new ArrayList<>();
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.add(utils.generateRandomProduct());
-        products.forEach(it -> {
-            if (it instanceof ProductBundle) {
-                utils.saveProductBundle((ProductBundle) it);
-            } else if (it instanceof NotifiableProduct) {
-                utils.saveNotifiableProduct((NotifiableProduct) it);
-            }
-        });
-
-        System.out.println(utils.getAll());
-        System.out.println("notifications sent: " + utils.filterNotifiableProductsAndSendNotifications());
+        Stream.generate(utils::generateRandomProduct)
+                .limit(10)
+                .forEach(utils::saveProduct);
+        utils.getAll().stream()
+                .map(Product::getBasicInfo)
+                .forEach(System.out::println);
+        System.out.println("notifications sent: " + utils.sendNotifications());
     }
 }

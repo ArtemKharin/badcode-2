@@ -1,6 +1,6 @@
-package ORG.EXAMPLE.repository;
+package org.EXAMPLE.repository;
 
-import ORG.EXAMPLE.moDEL.Product;
+import org.EXAMPLE.model.impl.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
