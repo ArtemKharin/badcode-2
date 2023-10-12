@@ -1,15 +1,15 @@
-package org.EXAMPLE.model.impl;
+package org.example.model.impl;
 
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
-import org.EXAMPLE.model.interf.ProductBundleInterface;
+import org.example.model.interf.ProductBundle;
 
 @Setter
 @EqualsAndHashCode(callSuper = true)
-public class ProductBundle extends Product implements ProductBundleInterface {
+public class ProductBundleImpl extends ProductImpl implements ProductBundle {
     protected int amount;
 
-    public ProductBundle(long id, boolean available, String title, double price, int amount) {
+    public ProductBundleImpl(long id, boolean available, String title, double price, int amount) {
         super(id, available, title, price);
         this.amount = amount;
     }

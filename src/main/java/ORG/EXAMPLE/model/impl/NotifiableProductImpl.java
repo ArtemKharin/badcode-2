@@ -1,13 +1,13 @@
-package org.EXAMPLE.model.impl;
+package org.example.model.impl;
 
 import lombok.EqualsAndHashCode;
-import org.EXAMPLE.model.interf.NotifiableProductInterface;
+import org.example.model.interf.NotifiableProduct;
 
 @EqualsAndHashCode(callSuper = true)
-public class NotifiableProduct extends Product implements NotifiableProductInterface {
+public class NotifiableProductImpl extends ProductImpl implements NotifiableProduct {
     protected String channel;
 
-    public NotifiableProduct(long id, boolean available, String title, double price) {
+    public NotifiableProductImpl(long id, boolean available, String title, double price) {
         super(id, available, title, price);
         this.channel = generateAddressForNotification();
     }

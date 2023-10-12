@@ -1,16 +1,16 @@
-package org.EXAMPLE.model.impl;
+package org.example.model.impl;
 
 import lombok.Data;
-import org.EXAMPLE.model.interf.ProductInterface;
+import org.example.model.interf.Product;
 
 @Data
-public abstract class Product implements ProductInterface {
+public abstract class ProductImpl implements Product {
     protected long id;
     protected boolean available;
     protected String title;
     protected double price;
 
-    public Product(long id, boolean available, String title, double price) {
+    public ProductImpl(long id, boolean available, String title, double price) {
         this.id = id;
         this.available = available;
         this.title = title;
@@ -25,4 +25,6 @@ public abstract class Product implements ProductInterface {
                 ", price=" + price +
                 '}';
     }
+
+
 }

@@ -1,8 +1,8 @@
-package org.EXAMPLE.utils;
+package org.example.utils;
 
-import org.EXAMPLE.model.impl.NotifiableProduct;
-import org.EXAMPLE.model.impl.Product;
-import org.EXAMPLE.model.impl.ProductBundle;
+import org.example.model.impl.NotifiableProductImpl;
+import org.example.model.impl.ProductImpl;
+import org.example.model.impl.ProductBundleImpl;
 
 import java.util.Random;
 
@@ -10,17 +10,17 @@ public class ProductGenerator {
     public ProductGenerator() {
     }
 
-    public static Product generateRandomProduct() {
+    public static ProductImpl generateRandomProduct() {
         Random random = new Random();
         if (random.nextBoolean()) {
-            return new ProductBundle(
+            return new ProductBundleImpl(
                     random.nextLong(),
                     random.nextBoolean(),
                     (random.nextFloat() + "" + random.nextDouble()),
                     random.nextDouble(),
                     random.nextInt(15));
         } else {
-            return new NotifiableProduct(
+            return new NotifiableProductImpl(
                     random.nextLong(),
                     random.nextBoolean(),
                     (random.nextFloat() + "" + random.nextDouble()),

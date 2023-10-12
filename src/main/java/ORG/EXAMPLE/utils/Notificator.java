@@ -1,7 +1,7 @@
-package org.EXAMPLE.utils;
+package org.example.utils;
 
-import org.EXAMPLE.model.impl.NotifiableProduct;
-import org.EXAMPLE.repository.ProductRepository;
+import org.example.model.interf.NotifiableProduct;
+import org.example.repository.ProductRepository;
 
 public class Notificator {
     private final ProductRepository productRepository;

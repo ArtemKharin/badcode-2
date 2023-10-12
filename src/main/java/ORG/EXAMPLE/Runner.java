@@ -1,9 +1,9 @@
-package org.EXAMPLE;
+package org.example;
 
-import org.EXAMPLE.model.impl.Product;
-import org.EXAMPLE.repository.ProductRepository;
-import org.EXAMPLE.utils.Notificator;
-import org.EXAMPLE.utils.ProductGenerator;
+import org.example.model.interf.Product;
+import org.example.repository.ProductRepository;
+import org.example.utils.Notificator;
+import org.example.utils.ProductGenerator;
 
 import java.util.stream.Stream;
 
